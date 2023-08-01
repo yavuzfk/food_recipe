@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe/screens/advices_page/advices_page.dart';
+import 'package:food_recipe/screens/item_selection_page/item_selection_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AdvicesPage(),
+      home: const ListViewPage(),
     );
   }
 }

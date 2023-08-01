@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe/screens/profile_page.dart/profile_page.dart';
 
 class WelcomeCard extends StatelessWidget {
   final String title;
@@ -25,7 +26,13 @@ class WelcomeCard extends StatelessWidget {
             Icons.person,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfilePage(),
+                ));
+          },
         ));
   }
 }

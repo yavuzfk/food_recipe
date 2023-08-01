@@ -16,7 +16,7 @@ class MainPageBodyContainer extends StatelessWidget {
       left: 0,
       right: 0,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.77,
+        height: MediaQuery.of(context).size.height * 0.79,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(34)),
           color: ProjectColors().projectPageColorWhite,

@@ -8,10 +8,10 @@ class BlackDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Divider(
-      thickness: 0.5,
-      indent: 2,
-      endIndent: 3,
-      color: Colors.purple,
+      thickness: 0.7,
+      // indent: 2,
+      // endIndent: 3,
+      color: Color.fromARGB(255, 226, 226, 226),
     );
   }
 }
