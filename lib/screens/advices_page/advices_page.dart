@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe/api/model/food_recipe.dart';
+import 'package:food_recipe/network_service/network_service.dart';
 import 'package:food_recipe/screens/advices_page/widgets/advices_area.dart';
 import 'package:food_recipe/screens/advices_page/widgets/page_body_container.dart';
 import 'package:food_recipe/screens/advices_page/widgets/welcome_card.dart';
@@ -9,8 +11,8 @@ import '../../utility/colors.dart';
 import '../favourites_page/favourites_page.dart';
 
 class AdvicesPage extends StatefulWidget {
-  const AdvicesPage({Key? key}) : super(key: key);
-
+  const AdvicesPage({Key? key, required this.foodList}) : super(key: key);
+  final List<FoodRecipe> foodList;
   @override
   State<AdvicesPage> createState() => _AdvicesPageState();
 }
@@ -21,6 +23,8 @@ class _AdvicesPageState extends State<AdvicesPage>
   late PageController pageController;
   int currentPageIndex = 0;
   late TabController tabController;
+  late INetworkService networkService;
+  late List<FoodRecipe> foodList;
 
   void onTapped(int index) {
     setState(() {
@@ -31,6 +35,9 @@ class _AdvicesPageState extends State<AdvicesPage>
 
   @override
   void initState() {
+    networkService = NetworkService();
+    foodList = widget.foodList;
+    // getFoodList();
     pageController = PageController();
     tabController = TabController(length: 3, vsync: this);
     super.initState();
@@ -48,10 +55,13 @@ class _AdvicesPageState extends State<AdvicesPage>
               child: PageView(
                 controller: pageController,
                 onPageChanged: onTapped,
-                children: const [
-                  MainPageBodyContainer(innerWidget: AdvicesArea()),
-                  MainPageBodyContainer(innerWidget: SearchRecipePage()),
-                  MainPageBodyContainer(innerWidget: FavouritesPage()),
+                children: [
+                  MainPageBodyContainer(
+                      innerWidget: AdvicesArea(
+                    foodList: foodList,
+                  )),
+                  const MainPageBodyContainer(innerWidget: SearchRecipePage()),
+                  const MainPageBodyContainer(innerWidget: FavouritesPage()),
                 ],
               ),
             )),
@@ -83,4 +93,11 @@ class _AdvicesPageState extends State<AdvicesPage>
           ],
         ));
   }
+
+  // Future<void> getFoodList() async {
+  //   foodList = await networkService.getFoodRecipes();
+  //   setState(() {
+  //     foodList;
+  //   });
+  // }
 }

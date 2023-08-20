@@ -1,7 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:food_recipe/screens/advices_page/advices_page.dart';
 import 'package:kartal/kartal.dart';
 
+import '../../api/model/food_recipe.dart';
+import '../../network_service/network_service.dart';
 import 'item_selection_page.dart';
 
 class SelectedItemsPage extends StatefulWidget {
@@ -13,6 +17,23 @@ class SelectedItemsPage extends StatefulWidget {
 }
 
 class _SelectedItemsPageState extends State<SelectedItemsPage> {
+  late INetworkService networkService;
+  List<FoodRecipe>? foodList;
+
+  @override
+  void initState() {
+    networkService = NetworkService();
+    getFoodList();
+    super.initState();
+  }
+
+  Future<void> getFoodList() async {
+    foodList = await networkService.getFoodRecipes();
+    setState(() {
+      foodList;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -54,11 +75,14 @@ class _SelectedItemsPageState extends State<SelectedItemsPage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
+          onPressed: () async {
+            if (foodList == null) {
+              await Future.delayed(const Duration(seconds: 2));
+            }
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const AdvicesPage(),
+                  builder: (context) => AdvicesPage(foodList: foodList!),
                 ));
           },
           elevation: 0,

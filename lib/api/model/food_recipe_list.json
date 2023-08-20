@@ -1,0 +1,58 @@
+[
+    {
+        "name":"pilav",
+        "materials":[
+            {
+                "name":"pirinc"
+            },
+            {
+                "name":"su"
+            }
+        ],
+        "recipe":"pirinci yika, suyu koy, pisir",
+        "listName":"Sana Ozel",
+        "image":"https://www.nizampide.com/wp-content/uploads/2018/07/nizam-special-kar%C4%B1%C5%9F%C4%B1k-kebap-%C4%B1zgara-porsiyon-nizam-pide-s%C3%BCtla%C3%A7-istanbul-beyo%C4%9Flu-istiklal-caddesi-600x600.jpg"
+    },
+    {
+        "name":"pilav",
+        "materials":[
+            {
+                "name":"pirinc"
+            },
+            {
+                "name":"su"
+            }
+        ],
+        "recipe":"pirinci yika, suyu koy, pisir",
+        "listName":"Sana Ozel",
+        "image":"https://cdn.yemek.com/mnresize/940/940/uploads/2020/08/manti-tarifi-guncelleme-son.jpg"
+    },
+    {
+        "name":"pilav",
+        "materials":[
+            {
+                "name":"pirinc"
+            },
+            {
+                "name":"su"
+            }
+        ],
+        "recipe":"pirinci yika, suyu koy, pisir",
+        "listName":"Sana Ozel",
+        "image":"https://cdn.yemek.com/mnresize/940/940/uploads/2022/08/100-gram-kiymayla-karniyarik-one-cikan.jpg"
+    },
+    {
+        "name":"pilav",
+        "materials":[
+            {
+                "name":"pirinc"
+            },
+            {
+                "name":"su"
+            }
+        ],
+        "recipe":"pirinci yika, suyu koy, pisir",
+        "listName":"Sana Ozel",
+        "image":"https://cdn.yemek.com/mnresize/1250/833/uploads/2020/09/tereyagli-pilav-one-cikan.jpg"
+    }
+]
