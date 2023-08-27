@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utility/colors.dart';
+import '../../../constants/utility/colors.dart';
 
 class WelcomeCardContainer extends StatelessWidget {
   const WelcomeCardContainer({
@@ -13,7 +13,7 @@ class WelcomeCardContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
-      color: ProjectColors().projectHeaderColor,
+      color: ProjectColors().projectRed,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: innerWidget,

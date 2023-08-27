@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utility/colors.dart';
+import '../../constants/utility/colors.dart';
 
 class SearchRecipePage extends StatefulWidget {
   const SearchRecipePage({Key? key}) : super(key: key);

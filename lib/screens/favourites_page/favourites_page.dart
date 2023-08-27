@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utility/colors.dart';
+import '../../constants/utility/colors.dart';
 import '../search_food_page/search_recipe_page.dart';
 
 class FavouritesPage extends StatefulWidget {

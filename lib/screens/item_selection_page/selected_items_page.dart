@@ -5,6 +5,8 @@ import 'package:food_recipe/screens/advices_page/advices_page.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../api/model/food_recipe.dart';
+import '../../constants/utility/color_lists.dart';
+import '../../constants/utility/colors.dart';
 import '../../network_service/network_service.dart';
 import 'item_selection_page.dart';
 
@@ -51,44 +53,52 @@ class _SelectedItemsPageState extends State<SelectedItemsPage> {
                       fontWeight: FontWeight.bold,
                       foreground: Paint()
                         ..shader = LinearGradient(
-                          colors: <Color>[
-                            Colors.blueGrey.shade800,
-                            const Color.fromARGB(255, 23, 20, 173),
-                          ],
+                          colors: redColorList,
                         ).createShader(
                             const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0))),
                 ),
-                SizedBox(
-                  height: context.sized.dynamicHeight(0.62),
-                  child: ListView.builder(
-                      itemCount: widget.selectedList.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: ListTile(
-                            title: Text(widget.selectedList[index].data ?? "_"),
-                          ),
-                        );
-                      }),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: SizedBox(
+                    height: context.sized.dynamicHeight(0.62),
+                    child: ListView.builder(
+                        itemCount: widget.selectedList.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: ListTile(
+                              title:
+                                  Text(widget.selectedList[index].data ?? "_"),
+                            ),
+                          );
+                        }),
+                  ),
                 ),
               ],
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            if (foodList == null) {
-              await Future.delayed(const Duration(seconds: 2));
-            }
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AdvicesPage(foodList: foodList!),
-                ));
-          },
-          elevation: 0,
-          backgroundColor: const Color.fromARGB(255, 23, 20, 173),
-          splashColor: Colors.blueGrey.shade800,
-          child: const Text("Devam Et"),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FloatingActionButton(
+            onPressed: () async {
+              if (foodList == null) {
+                await Future.delayed(const Duration(seconds: 2));
+              }
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        AdvicesPage(foodList: foodList ?? <FoodRecipe>[]),
+                  ));
+            },
+            elevation: 0,
+            backgroundColor: ProjectColors().projectRed,
+            splashColor: Colors.white,
+            child: const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );

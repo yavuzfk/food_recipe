@@ -34,3 +34,12 @@ List<Color> pinkColors = [
   Colors.pink.shade900,
   Colors.pink.shade600,
 ];
+List<Color> purpleProjectColors = [
+  Colors.blueGrey.shade800,
+  const Color.fromARGB(255, 23, 20, 173),
+];
+List<Color> redColorList = [
+  // ProjectColors().projectRed,
+  const Color.fromARGB(255, 96, 6, 6),
+  const Color.fromARGB(255, 44, 2, 2)
+];

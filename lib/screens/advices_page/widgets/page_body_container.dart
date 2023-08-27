@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utility/colors.dart';
+import '../../../constants/utility/colors.dart';
 
 class MainPageBodyContainer extends StatelessWidget {
   final Widget innerWidget;

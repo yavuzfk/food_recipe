@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipe/api/model/food_recipe.dart';
-import 'package:food_recipe/network_service/network_service.dart';
 import 'package:food_recipe/screens/advices_page/widgets/advices_area.dart';
 import 'package:food_recipe/screens/advices_page/widgets/page_body_container.dart';
 import 'package:food_recipe/screens/advices_page/widgets/welcome_card.dart';
 import 'package:food_recipe/screens/advices_page/widgets/welcome_card_container.dart';
 import 'package:food_recipe/screens/search_food_page/search_recipe_page.dart';
 
-import '../../utility/colors.dart';
+import '../../constants/utility/colors.dart';
 import '../favourites_page/favourites_page.dart';
 
 class AdvicesPage extends StatefulWidget {
@@ -23,7 +22,7 @@ class _AdvicesPageState extends State<AdvicesPage>
   late PageController pageController;
   int currentPageIndex = 0;
   late TabController tabController;
-  late INetworkService networkService;
+  // late INetworkService networkService;
   late List<FoodRecipe> foodList;
 
   void onTapped(int index) {
@@ -35,7 +34,7 @@ class _AdvicesPageState extends State<AdvicesPage>
 
   @override
   void initState() {
-    networkService = NetworkService();
+    // networkService = NetworkService();
     foodList = widget.foodList;
     // getFoodList();
     pageController = PageController();
@@ -73,7 +72,7 @@ class _AdvicesPageState extends State<AdvicesPage>
           showSelectedLabels: true,
           showUnselectedLabels: true,
           backgroundColor:
-              ProjectColors().projectHeaderColor, // <-- This works for fixed
+              ProjectColors().projectRed, // <-- This works for fixed
           selectedItemColor: Colors.white,
           unselectedItemColor: const Color.fromARGB(255, 158, 222, 160),
           onTap: onTapped,

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe/constants/utility/colors.dart';
 import 'package:food_recipe/screens/item_selection_page/selected_items_page.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../constants/utility/color_lists.dart';
 
 class ListViewPage extends StatefulWidget {
   const ListViewPage({Key? key}) : super(key: key);
@@ -61,7 +64,7 @@ class _ListViewPageState extends State<ListViewPage> {
   Widget selectionIcons(bool isSelected) {
     return Icon(
       isSelected ? Icons.check_box : Icons.check_box_outline_blank,
-      color: Theme.of(context).primaryColor,
+      color: ProjectColors().projectRed,
     );
   }
 
@@ -113,16 +116,14 @@ class _ListViewPageState extends State<ListViewPage> {
             child: Column(
               children: [
                 Text(
-                  "EVİNDEKİ MALZEMELERİ SEÇ",
+                  "EVİNDE BULUNAN MALZEMELERİ SEÇ",
                   style: TextStyle(
                       fontSize: 36.0,
                       fontWeight: FontWeight.bold,
                       foreground: Paint()
                         ..shader = LinearGradient(
-                          colors: <Color>[
-                            Colors.blueGrey.shade800,
-                            const Color.fromARGB(255, 23, 20, 173),
-                          ],
+                          colors: redColorList,
+                          // colors: purpleProjectColors,
                         ).createShader(
                             const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0))),
                 ),
@@ -166,9 +167,12 @@ class _ListViewPageState extends State<ListViewPage> {
                         SelectedItemsPage(selectedList: selectedList)));
           },
           elevation: 0,
-          backgroundColor: const Color.fromARGB(255, 23, 20, 173),
-          splashColor: Colors.blueGrey.shade800,
-          child: const Icon(Icons.done_all_outlined),
+          backgroundColor: ProjectColors().projectRed,
+          splashColor: Colors.white,
+          child: const Icon(
+            Icons.done_all_outlined,
+            color: Colors.white,
+          ),
         ),
       ),
     );
