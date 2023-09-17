@@ -25,98 +25,103 @@ class ProfilePage extends StatelessWidget {
                 flex: 3,
                 child: Container(
                   child: Stack(children: [
-                    Positioned(
-                      bottom: 0,
-                      child: SizedBox(
-                        height: 252,
-                        width: MediaQuery.of(context).size.width,
-                        child: Card(
-                          color: const Color.fromARGB(255, 22, 71, 156),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text("Malzemelerin",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.white54,
-                                        fontWeight: FontWeight.w600)),
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 8.0),
-                                  child: BlackDivider(),
-                                ),
-                                SizedBox(
-                                  height: 154,
-                                  child: ListView(
-                                    children: const [
-                                      Text(
-                                        "Patates",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(height: 6),
-                                      Text(
-                                        "Soğan",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(height: 6),
-                                      Text(
-                                        "Kıyma",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(height: 6),
-                                      Text(
-                                        "Malzeme 1",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(height: 6),
-                                      Text(
-                                        "Malzeme 1",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(height: 6),
-                                      Text(
-                                        "Malzeme 1",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(height: 6),
-                                      Text(
-                                        "Malzeme 1",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(height: 6),
-                                      Text(
-                                        "Malzeme 1",
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white70,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Positioned(
+                        bottom: 0,
+                        child: SizedBox(
+                          height: 252,
+                          width: MediaQuery.of(context).size.width,
+                          child: Card(
+                            // color: const Color.fromARGB(255, 22, 71, 156),
+                            color: Colors.red,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text("Malzemelerin",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white54,
+                                          fontWeight: FontWeight.w600)),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 8.0),
+                                    child: BlackDivider(),
                                   ),
-                                ),
-                              ],
+                                  SizedBox(
+                                    height: 154,
+                                    child: ListView(
+                                      children: const [
+                                        Text(
+                                          "Patates",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Soğan",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Kıyma",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Malzeme 1",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Malzeme 1",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Malzeme 1",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Malzeme 1",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Malzeme 1",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white70,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -131,7 +136,8 @@ class ProfilePage extends StatelessWidget {
                             decoration: BoxDecoration(
                                 gradient: const LinearGradient(colors: [
                                   Color.fromARGB(255, 221, 223, 228),
-                                  Color.fromARGB(255, 65, 93, 218),
+                                  // Color.fromARGB(255, 65, 93, 218),
+                                  Color.fromARGB(255, 239, 45, 45),
                                   // Colors.blueAccent,
                                   // Color.fromARGB(255, 45, 23, 146),
                                 ]),

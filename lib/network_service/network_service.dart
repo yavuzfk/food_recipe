@@ -12,7 +12,7 @@ class NetworkService extends INetworkService {
   final Dio _dio;
   NetworkService() : _dio = Dio();
   final String _apiUrl =
-      "http://192.168.1.115:5500/lib/api/model/food_recipe_list.json";
+      "http://192.168.1.29:5500/lib/api/model/food_recipe_list.json";
   @override
   Future<List<FoodRecipe>?> getFoodRecipes() async {
     try {

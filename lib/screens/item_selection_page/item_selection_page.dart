@@ -5,14 +5,14 @@ import 'package:kartal/kartal.dart';
 
 import '../../constants/utility/color_lists.dart';
 
-class ListViewPage extends StatefulWidget {
-  const ListViewPage({Key? key}) : super(key: key);
+class ItemSelectionPage extends StatefulWidget {
+  const ItemSelectionPage({Key? key}) : super(key: key);
 
   @override
-  _ListViewPageState createState() => _ListViewPageState();
+  _ItemSelectionPageState createState() => _ItemSelectionPageState();
 }
 
-class _ListViewPageState extends State<ListViewPage> {
+class _ItemSelectionPageState extends State<ItemSelectionPage> {
   late List<ListData> dataList;
   late List<ListData> dataListTemp;
   bool isSelected = false;

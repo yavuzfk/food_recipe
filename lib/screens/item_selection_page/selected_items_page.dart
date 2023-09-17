@@ -25,7 +25,7 @@ class _SelectedItemsPageState extends State<SelectedItemsPage> {
   @override
   void initState() {
     networkService = NetworkService();
-    getFoodList();
+    // getFoodList();
     super.initState();
   }
 
@@ -87,8 +87,7 @@ class _SelectedItemsPageState extends State<SelectedItemsPage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        AdvicesPage(foodList: foodList ?? <FoodRecipe>[]),
+                    builder: (context) => const AdvicesPage(),
                   ));
             },
             elevation: 0,
