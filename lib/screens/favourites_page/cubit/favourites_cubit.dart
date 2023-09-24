@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import '../../../api/model/food_recipe.dart';
 
-class FavouritesCubit extends Cubit<List<FoodRecipe>> {
-  FavouritesCubit() : super([]);
+class CubitFavourites extends Cubit<List<FoodRecipe>> {
+  CubitFavourites() : super([]);
 
   void addElement(FoodRecipe recipe) {
     state.add(recipe);

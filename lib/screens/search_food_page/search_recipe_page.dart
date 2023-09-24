@@ -11,22 +11,6 @@ class SearchRecipePage extends StatefulWidget {
 }
 
 class _SearchRecipePageState extends State<SearchRecipePage> {
-  // final String image1 =
-  //     'https://www.nizampide.com/wp-content/uploads/2018/07/nizam-special-kar%C4%B1%C5%9F%C4%B1k-kebap-%C4%B1zgara-porsiyon-nizam-pide-s%C3%BCtla%C3%A7-istanbul-beyo%C4%9Flu-istiklal-caddesi-600x600.jpg';
-  // final String image2 =
-  //     'https://cdn.yemek.com/mnresize/1250/833/uploads/2023/01/lokanta-usulu-et-sote-sunum-yemekcom.jpg';
-  // final String image3 =
-  //     'https://ferishtah.com/wp-content/uploads/2019/03/Menemen-Nas%C4%B1l-Yap%C4%B1l%C4%B1r.jpg';
-  // final String image4 =
-  //     'https://cdn.yemek.com/mnresize/1250/833/uploads/2020/09/tereyagli-pilav-one-cikan.jpg';
-  // final String image5 =
-  //     'https://cdn.yemek.com/mnresize/940/940/uploads/2022/08/100-gram-kiymayla-karniyarik-one-cikan.jpg';
-  // final String image6 =
-  //     'https://cdn.yemek.com/mnresize/940/940/uploads/2020/08/manti-tarifi-guncelleme-son.jpg';
-  // final String image7 =
-  //     'https://cdn.yemek.com/mncrop/620/388/uploads/2017/01/ev-usulu-pizza-yeni.jpg';
-  // final String image8 = 'https://i.ytimg.com/vi/6Idb-Zhjiv8/maxresdefault.jpg';
-
   late TextEditingController controller;
   List<FoodRecipe> backupList = [];
   List<FoodRecipe> foodList = [];
@@ -35,26 +19,6 @@ class _SearchRecipePageState extends State<SearchRecipePage> {
   void initState() {
     controller = TextEditingController();
     foodList = widget.foodList!;
-    // foodList.add(FoodModel(
-    //     name: "Karnıyarık",
-    //     malzemeSayisi: 5,
-    //     imagePath: image1,
-    //     isFavourite: true));
-    // foodList.add(FoodModel(
-    //     name: "Makarna",
-    //     malzemeSayisi: 4,
-    //     imagePath: image3,
-    //     isFavourite: true));
-    // foodList.add(FoodModel(
-    //     name: "Köri Tavuk",
-    //     malzemeSayisi: 7,
-    //     imagePath: image2,
-    //     isFavourite: true));
-    // foodList.add(FoodModel(
-    //     name: "Karnıyarık",
-    //     malzemeSayisi: 5,
-    //     imagePath: image1,
-    //     isFavourite: true));
     backupList = foodList;
     super.initState();
   }
@@ -225,17 +189,4 @@ class HeaderTextArea extends StatelessWidget {
       ),
     );
   }
-}
-
-class FoodModel {
-  String? name;
-  int? malzemeSayisi;
-  String? imagePath;
-  bool? isFavourite;
-
-  FoodModel(
-      {required this.name,
-      required this.malzemeSayisi,
-      required this.imagePath,
-      required this.isFavourite});
 }

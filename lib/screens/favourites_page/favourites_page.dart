@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/utility/colors.dart';
-import '../search_food_page/search_recipe_page.dart';
 
 class FavouritesPage extends StatefulWidget {
   const FavouritesPage({Key? key}) : super(key: key);
@@ -197,4 +196,17 @@ class HeaderTextArea extends StatelessWidget {
       ),
     );
   }
+}
+
+class FoodModel {
+  String? name;
+  int? malzemeSayisi;
+  String? imagePath;
+  bool? isFavourite;
+
+  FoodModel(
+      {required this.name,
+      required this.malzemeSayisi,
+      required this.imagePath,
+      required this.isFavourite});
 }

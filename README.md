@@ -4,13 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+hive ekle her seferinde malzeme sormasın 
 
-A few resources to get you started if this is your first Flutter project:
+Firebase tarif listesini verse şuan ki yapıya uygun, search içeride yapılıyor. Veri küçük büyük iken?
+Görsel çekme denemesi yapılmalı, authentication lazım 
+Favoriler hive da tutulabilir mi? id sinden falan kayıt edip açılışta yakalasak veya direk json kaydetsek tarifleri. maks 10 tarif?
+Favoriler için cubit yapısı var deneyelim...
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Advice
+    Advice Page ve Search Page -> BlocRecipeList'den besleniyor.

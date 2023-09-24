@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe/api/model/food_recipe.dart';
 
 import '../../core/atoms/black_divider.dart';
 
 class RecipePage extends StatefulWidget {
-  const RecipePage({Key? key}) : super(key: key);
-  // final String imagePath;
-  // final String listName;
+  const RecipePage({super.key, required this.selectedRecipe});
+  final FoodRecipe selectedRecipe;
+
   @override
-  _RecipePageState createState() => _RecipePageState();
+  State<RecipePage> createState() => _RecipePageState();
 }
 
 class _RecipePageState extends State<RecipePage> {
-  final String image5 =
-      'https://cdn.yemek.com/mnresize/940/940/uploads/2022/08/100-gram-kiymayla-karniyarik-one-cikan.jpg';
-  final String listName = "Sana Özel Tarifler";
-  final String foodName = "Karnıyarık";
   bool isFavorite = false;
+  late final List<String> materials;
+
+  @override
+  void initState() {
+    //TODO: Favori listesinde bu ürün varsa kalp dolu gözükecek
+    materials = widget.selectedRecipe.materials!;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          ImageArea(image5: image5),
+          ImageArea(image5: widget.selectedRecipe.image!),
           Container(
             height: MediaQuery.of(context).size.height * 0.66,
             color: Colors.white,
@@ -32,10 +37,10 @@ class _RecipePageState extends State<RecipePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
                   title: Text(
-                    foodName,
+                    widget.selectedRecipe.name!,
                     style: const TextStyle(fontWeight: FontWeight.w500),
                   ),
-                  subtitle: Text(listName),
+                  subtitle: Text(widget.selectedRecipe.listName!),
                   trailing: IconButton(
                       onPressed: () {
                         setState(() {
@@ -48,20 +53,27 @@ class _RecipePageState extends State<RecipePage> {
                 ),
               ),
               const BlackDivider(),
-              const Padding(
-                padding: EdgeInsets.all(24.0),
+              Padding(
+                padding: const EdgeInsets.all(24.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Malzemeler",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Text("- 3 Adet Patlıcan"),
-                    Text("- 3 Adet Patates"),
-                    Text("- 250gr Kıyma"),
-                    Text("- 2 Adet Sarımsak"),
+                    SizedBox(
+                      height: 100,
+                      child: ListView.builder(
+                        itemCount: materials.length,
+                        itemBuilder: (context, index) {
+                          var material = materials[index];
+                          //XXX: materials map almış içerisine, string list e çekmek lazım
+                          return Text("- $material");
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),

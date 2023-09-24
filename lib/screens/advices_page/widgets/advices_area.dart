@@ -90,7 +90,9 @@ class _AdvicesAreaState extends State<AdvicesArea> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const RecipePage()));
+                                  builder: (context) => RecipePage(
+                                        selectedRecipe: item,
+                                      )));
                         },
                         child: Stack(
                           children: [
