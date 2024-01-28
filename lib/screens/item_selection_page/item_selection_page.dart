@@ -129,7 +129,8 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
                 ),
                 searchBar(),
                 SizedBox(
-                  height: context.dynamicHeight(0.62),
+                  height: MediaQuery.of(context).size.height * 0.62,
+                  // height: context.dynamicHeight(0.62),
                   child: ListView.builder(
                       itemCount: dataList.length,
                       itemBuilder: (context, index) {
