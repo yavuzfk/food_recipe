@@ -1,19 +1,20 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:food_recipe/api/model/food_item_model.dart';
 import 'package:food_recipe/screens/advices_page/advices_page.dart';
 import 'package:kartal/kartal.dart';
 
-import '../../api/model/food_recipe.dart';
-import '../../constants/utility/color_lists.dart';
-import '../../constants/utility/colors.dart';
-import '../../network_service/network_service.dart';
-import 'item_selection_page.dart';
+import '../../../api/model/food_recipe_model.dart';
+import '../../../constants/utility/color_lists.dart';
+import '../../../constants/utility/colors.dart';
+import '../../../network_service/network_service.dart';
+import '../item_selection_page.dart';
 
 class SelectedItemsPage extends StatefulWidget {
   const SelectedItemsPage({Key? key, required this.selectedList})
       : super(key: key);
-  final List<ListData> selectedList;
+  final List<FoodItem> selectedList;
   @override
   _SelectedItemsPageState createState() => _SelectedItemsPageState();
 }
@@ -67,7 +68,7 @@ class _SelectedItemsPageState extends State<SelectedItemsPage> {
                           return Card(
                             child: ListTile(
                               title:
-                                  Text(widget.selectedList[index].data ?? "_"),
+                                  Text(widget.selectedList[index].name ?? "_"),
                             ),
                           );
                         }),

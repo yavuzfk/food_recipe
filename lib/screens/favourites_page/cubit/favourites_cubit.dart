@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import '../../../api/model/food_recipe.dart';
+import '../../../api/model/food_recipe_model.dart';
 
 class CubitFavourites extends Cubit<List<FoodRecipe>> {
   CubitFavourites() : super([]);

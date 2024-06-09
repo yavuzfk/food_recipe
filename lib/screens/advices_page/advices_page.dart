@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_recipe/api/model/food_recipe.dart';
+import 'package:food_recipe/api/model/food_recipe_model.dart';
 import 'package:food_recipe/screens/advices_page/bloc/recipe_list_bloc.dart';
 import 'package:food_recipe/screens/advices_page/widgets/advices_area.dart';
 import 'package:food_recipe/screens/advices_page/widgets/page_body_container.dart';
@@ -25,7 +25,6 @@ class _AdvicesPageState extends State<AdvicesPage>
   late PageController pageController;
   int currentPageIndex = 0;
   late TabController tabController;
-  // late INetworkService networkService;
   late List<FoodRecipe> foodList;
 
   void onTapped(int index) {

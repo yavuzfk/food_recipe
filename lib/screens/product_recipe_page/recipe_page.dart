@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe/api/model/food_recipe.dart';
+import 'package:food_recipe/api/model/food_recipe_model.dart';
 
 import '../../core/atoms/black_divider.dart';
 

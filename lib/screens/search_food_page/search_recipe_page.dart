@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../api/model/food_recipe.dart';
+import '../../api/model/food_recipe_model.dart';
 import '../../constants/utility/colors.dart';
 
 class SearchRecipePage extends StatefulWidget {

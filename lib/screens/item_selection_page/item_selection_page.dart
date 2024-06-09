@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipe/api/model/food_item_model.dart';
 import 'package:food_recipe/constants/utility/colors.dart';
-import 'package:food_recipe/screens/item_selection_page/selected_items_page.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../constants/utility/color_lists.dart';
+import 'bloc/item_selection_bloc.dart';
+import 'selected_items/selected_items_page.dart';
 
 class ItemSelectionPage extends StatefulWidget {
   const ItemSelectionPage({Key? key}) : super(key: key);
@@ -13,11 +16,7 @@ class ItemSelectionPage extends StatefulWidget {
 }
 
 class _ItemSelectionPageState extends State<ItemSelectionPage> {
-  late List<ListData> dataList;
-  late List<ListData> dataListTemp;
-  bool isSelected = false;
-  List<ListData> selectedData = <ListData>[];
-
+  final ItemSelectionBloc bloc = ItemSelectionBloc();
   late final TextEditingController _controller;
 
   @override
@@ -28,37 +27,9 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
 
   @override
   void initState() {
-    dataList = fillDataList();
-    dataListTemp = dataList;
+    bloc.add(ItemSelectionInitialEvent());
     _controller = TextEditingController();
     super.initState();
-  }
-
-  List<ListData> fillDataList() {
-    List<ListData> tempList = <ListData>[];
-
-    ListData data1 = ListData(id: 1, data: "Soğan");
-    ListData data2 = ListData(id: 2, data: "Patates");
-    ListData data3 = ListData(id: 3, data: "Havuç");
-    ListData data4 = ListData(id: 4, data: "Tavuk");
-    ListData data5 = ListData(id: 5, data: "Kırmızı Et");
-    ListData data6 = ListData(id: 6, data: "Ton Balığı");
-    ListData data7 = ListData(id: 7, data: "Turşu");
-    ListData data8 = ListData(id: 8, data: "Pirinç");
-    ListData data9 = ListData(id: 9, data: "Bulgur");
-    ListData data10 = ListData(id: 10, data: "Tereyağı");
-
-    tempList.add(data1);
-    tempList.add(data2);
-    tempList.add(data3);
-    tempList.add(data4);
-    tempList.add(data5);
-    tempList.add(data6);
-    tempList.add(data7);
-    tempList.add(data8);
-    tempList.add(data9);
-    tempList.add(data10);
-    return tempList;
   }
 
   Widget selectionIcons(bool isSelected) {
@@ -79,7 +50,7 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
               child: TextField(
                 textInputAction: TextInputAction.go,
                 onSubmitted: (value) {
-                  dataList = dataListTemp;
+                  // dataList = dataListTemp;
                 },
                 controller: _controller,
                 decoration: InputDecoration(
@@ -89,72 +60,95 @@ class _ItemSelectionPageState extends State<ItemSelectionPage> {
                       borderRadius: BorderRadius.circular(12),
                       borderSide: const BorderSide(color: Colors.deepOrange)),
                 ),
-                onChanged: searchStaff,
+                // onChanged: searchStaff,
               )),
         ],
       ),
     );
   }
 
-  searchStaff(String query) {
-    setState(() {
-      final input = query.toLowerCase();
+/*    searchStaff(String query) {
+     setState(() {
+       final input = query.toLowerCase();
       dataList = dataListTemp.where((element) {
-        return element.data!.toLowerCase().contains(input);
+        return element.name!.toLowerCase().contains(input);
       }).toList();
-    });
-  }
+     });
+ } */
 
   @override
   Widget build(BuildContext context) {
+    List<FoodItem> dataList = [];
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFFEEEEEE),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              children: [
-                Text(
-                  "EVİNDE BULUNAN MALZEMELERİ SEÇ",
-                  style: TextStyle(
-                      fontSize: 36.0,
-                      fontWeight: FontWeight.bold,
-                      foreground: Paint()
-                        ..shader = LinearGradient(
-                          colors: redColorList,
-                          // colors: purpleProjectColors,
-                        ).createShader(
-                            const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0))),
+        body: BlocConsumer<ItemSelectionBloc, ItemSelectionState>(
+          bloc: bloc,
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            if (state is ItemSelectionInitial) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is ItemSelectionLoadingState) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is ItemSelectionLoadedState) {
+              dataList = state.dataList;
+              return SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "EVİNDE BULUNAN MALZEMELERİ SEÇ",
+                        style: TextStyle(
+                            fontSize: 36.0,
+                            fontWeight: FontWeight.bold,
+                            foreground: Paint()
+                              ..shader = LinearGradient(
+                                colors: redColorList,
+                                // colors: purpleProjectColors,
+                              ).createShader(
+                                  const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0))),
+                      ),
+                      searchBar(),
+                      SizedBox(
+                        height: context.dynamicHeight(0.62),
+                        child: ListView.builder(
+                            itemCount: dataList.length,
+                            itemBuilder: (context, index) {
+                              FoodItem? item = dataList[index];
+                              bool isSelected = item.selected;
+                              return Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    bloc.add(ItemSelectionAddEvent(
+                                        item: item, dataList: dataList));
+                                  },
+                                  title: Text(item.name ?? "_"),
+                                  leading: selectionIcons(item.selected),
+                                ),
+                              );
+                            }),
+                      ),
+                    ],
+                  ),
                 ),
-                searchBar(),
-                SizedBox(
-                  height: context.dynamicHeight(0.62),
-                  child: ListView.builder(
-                      itemCount: dataList.length,
-                      itemBuilder: (context, index) {
-                        ListData? listData = dataList[index];
-                        isSelected = listData.selected;
-                        return Card(
-                          child: ListTile(
-                            onTap: () {
-                              setState(() {
-                                listData.selected = !listData.selected;
-                              });
-                            },
-                            title: Text(listData.data ?? "_"),
-                            leading: selectionIcons(listData.selected),
-                          ),
-                        );
-                      }),
-                ),
-              ],
-            ),
-          ),
+              );
+            } else if (state is ItemSelectionConfirmButtonState) {
+              return const Center();
+            } else if (state is ItemSelectionErrorState) {
+              return Center(child: Text(state.errorMessage));
+            } else {
+              return const Center(
+                child: Text("sfsdsdf"),
+              );
+            }
+          },
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            List<ListData> selectedList = <ListData>[];
+            List<FoodItem> selectedList = <FoodItem>[];
             for (int i = 0; i < dataList.length; i++) {
               if (dataList[i].selected == true) {
                 selectedList.add(dataList[i]);

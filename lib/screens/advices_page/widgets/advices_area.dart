@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_recipe/screens/product_recipe_page/recipe_page.dart';
 import 'package:food_recipe/screens/user_list_page/user_list_page.dart';
 
-import '../../../api/model/food_recipe.dart';
+import '../../../api/model/food_recipe_model.dart';
 
 class AdvicesArea extends StatefulWidget {
   const AdvicesArea({super.key, required this.foodList});

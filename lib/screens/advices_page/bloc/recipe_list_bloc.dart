@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:food_recipe/network_service/network_service.dart';
 import 'package:meta/meta.dart';
-import '../../../api/model/food_recipe.dart';
+import '../../../api/model/food_recipe_model.dart';
 
 part 'recipe_list_event.dart';
 part 'recipe_list_state.dart';
