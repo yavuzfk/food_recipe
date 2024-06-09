@@ -13,3 +13,4 @@ Favoriler için cubit yapısı var deneyelim...
 
 Advice
     Advice Page ve Search Page -> BlocRecipeList'den besleniyor.
+    Deneme 123
